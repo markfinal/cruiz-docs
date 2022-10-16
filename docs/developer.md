@@ -36,3 +36,18 @@ tox -e lint
 
 ## Code format
 cruiz uses [black](https://pypi.org/project/black/) as a formatter.
+
+## Continuous integration
+GitHub Actions are implemented for each branch. Depending on the branch, different actions are performed
+### Topic branches
+The Python package will be built and linted.
+### Protected branches
+As for topic branches, but additionally uploaded to Test PyPi.
+### Protected tags
+These begin with `v`. As for topic branches, but additionally uploaded to PyPi.
+
+## Making a release
+Releases should be planned, and semantic versioning used. Prereleases are encouraged. A Git tag represents a release. Tag formats are vX.Y.Z[(a|b)N] where X is the major, Y is the minor, and Z is the patch version; a is for alpha, b is for beta, and N is incrementing non-zero integer.
+
+## Maintenance
+For each new major or minor release, a branch is created called `vX.Y` that represents the maintenance of the family of releases `vX.Y.Z`. All bug fixes should be applied to the maintenance branch first, and then merged back to the default branch. Cherry-picking from the default branch to a maintenance branch should not be used.
