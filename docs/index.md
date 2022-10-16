@@ -2,7 +2,7 @@
 
 cruiz stands for Conan Recipe User Interface.
 
-At this time, Conan 1.x is supported.
+At this time, only Conan 1.x is supported.
 
 ## Goals
 The goals of cruiz are as follows:
@@ -22,29 +22,44 @@ The goals of cruiz are as follows:
 * Alternative remote package inspection
 > Something different to Artifactory's web interface but on the client side. Improvements such as syntax highlighted file viewing.
 
+## Main menu
+### File menu
+* `Open...` to open a recipe into a tab
+* `Recent recipes` to view a list of previously opened recipes
+* `Quit`
+### Edit menu
+* `Preferences...` to open the preferences dialog
+* `Manage local caches...` to open the local cache management dialog
+### View menu
+* `Conan remote browser` to toggle the remote browser dock
+### Help menu
+* `About cruiz...` to view version information about cruiz and the Python ecosystem running
+* `About Qt...` to show the standard Qt version dialog
+* `Icon licenses...` to show the licenses for icons used
+
 ## Recipes are first class citizens
 Conan recipe files (conanfile.py/conanfile.txt) are the primary files that cruiz will open.
 
-Use File->Open... to open a recipe into the UI. A wizard will be shown to guide the loading process for any recipe unknown to cruiz. Version agnostic recipes are supported, and the associated conandata.yml is parsed to determine the versions available.
+Use `File->Open...` to open a recipe into the UI. A wizard will be shown to guide the loading process for any recipe unknown to cruiz. Version agnostic recipes are supported, and the associated conandata.yml is parsed to determine the versions available.
 
-Multiple recipes can be loaded.
+Multiple recipes can be loaded, each into their own tab.
 
 ## Manage local caches
 Conan supports local caches in different locations. Working with different projects may require a different local cache for each. This can be done with environment variables.
 
-cruiz offers a mechanism to associate a recipe file with a named local cache. This binding is kept in preferences. It is recallable if a recipe is reloaded, and also changed if so desired.
+cruiz offers a mechanism to associate a recipe file with a named local cache. This binding is kept in preferences. The binding can be changed if you need to move recipe output to a different cache.
 
-Use Edit->Manage local caches... to manage the named local caches. A wizard will guide you through the steps when creating a new named local cache.
+Use `Edit->Manage local caches...` to manage the named local caches. A wizard will guide you through the steps when creating a new named local cache.
 
 ## Remote browser
 The Artifactory web UI and the Conan CLI are the common ways to browse and search for packages on a remote of an Artifactory server. cruiz offers an alternative viewer, with an interactive package reference search leading to recipe revisions, package_ids, package revisions, and finally a browser over package tarballs themselves. Revisions are only shown when that feature is enabled.
 
-The remote browser is a dock made visible via the View->Conan remote browser menu option.
+The remote browser dock visibility can been toggled via the `View->Conan remote browser` menu option.
 
 ## Preferences
 Many features of cruiz can be configured via the preferences. Features are logically grouped to make finding what you want easier. Most settings can be applied while the dialog remains open; a few require restarting the application.
 
-Use Edit->Preferences... to open the preferences dialog.
+Use `Edit->Preferences...` to open the preferences dialog.
 
 ## Recipe tabs
 Each recipe loaded into cruiz is displayed as a tab in the UI. Each tab widget is split into several sections by default:
@@ -59,8 +74,34 @@ Each recipe loaded into cruiz is displayed as a tab in the UI. Each tab widget i
 #### Recipe menu
 This menu offers options to interact with the recipe, and the local cache it is associated with.
 
-#### Command menu
+* `Open recipe in editor...` uses the configured editor to view the recipe file
+* `Open recipe folder...` opens the file system folder containing the recipe file
+* `Copy recipe folder to clipboard`
+* `Open another version of this recipe...` opens a wizard to open a new recipe tab for a different version for version agnostic recipes
+* `Manage associated local cache...` opens the local cache management dialog for the cache associated with this recipe
+* `Reload` reloads the recipe from disk, and updates the UI
+* `Close`
+
+#### Commands menu
 This menu offers all of the Conan (and other) commands that are on the toolbars.
+
+* `Create package in local cache` runs `conan create`
+* `Create package in local cache with latest dependencies` runs `conan create -u`
+* Local workflow
+    * `Download dependencies and configure` runs `conan install`
+    * `Download latest dependencies and configure` runs `conan install -u`
+    * `Import files from dependents` runs `conan imports`
+    * `Get source code` runs `conan source`
+    * `Build source` runs `conan build`
+    * `Make local package` runs `conan package`
+    * `Export package to local cache` runs `conan export-pkg`
+    * `Test package in local cache` runs `conan test`
+    * CMake
+        * `Run CMake build tool` runs `cmake --build` in the build folder
+        * `Run CMake build tool (verbose)` runs `cmake --build` in verbose mode in the build folder
+        * `Delete CMake cache` deletes the `CMakeCache.txt` file in the build folder
+* `Remove package from local cache` runs `conan remove -f`
+* `Cancel running command` will stop any running command in cruiz.
 
 ### Toolbars
 #### Profile
@@ -69,6 +110,17 @@ A combobox offering all of the profiles in the associated local cache.
 A spinbox offering a way to change the number of cores that Conan commands will use.
 #### Commands
 Toolbar icons for each Conan and other commands that can be executed on the recipe. Tooltips contain the exact command to be executed on the command line, and will update with changes to the configuration of the recipe.
+#### CMake
+Checkboxes to enable verbose CMake output and enabling CMake find debug mode. These are to avoid needing to modify any build scripts on disk.
+#### Compiler caching
+cruiz is aware of several compiler caching technologies:
+
+* ccache
+* sccache
+* buildcache
+
+CMake based builds should integrate with any of these.
+Autotools based builds can be configured to add extra command line flags to integrate.
 
 ### Dependencies dock
 This is a representation of a Conan lock file for the recipe in its selected configuration.
