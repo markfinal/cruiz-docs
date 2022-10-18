@@ -71,7 +71,7 @@ Each recipe loaded into cruiz is displayed as a tab in the UI. Each tab widget i
 5. a dock to the bottom, split between a history of Conan commands run on the recipe, and the Conan log stream
 
 ### Menus
-#### Recipe menu
+#### Recipe menu
 This menu offers options to interact with the recipe, and the local cache it is associated with.
 
 * `Open recipe in editor...` uses the configured editor to view the recipe file
@@ -126,7 +126,7 @@ Autotools based builds can be configured to add extra command line flags to inte
 This is a representation of a Conan lock file for the recipe in its selected configuration.
 This displays a flat list of the dependencies found and a graphical representation, if graphviz has been configured. Double clicking on the small visualisation opens a separate dialog showing it full size, with an option to save as an SVG.
 
-### Configuration dock
+### Configuration dock
 Split into three sections, it shows:
 
 1. the package_id computed from the lockfile
@@ -138,8 +138,8 @@ Modifying any input data to the lockfile generation will recompute the package_i
 ### Local workflow dock
 Split into several sections, this allows the definition of paths used in Conan local workflows.
 
-### Conan command dock
+### Conan command dock
 Whenever a command is executed on a recipe, it is recorded in the command log. This is intended both as a learning mechanism by seeing what changes by modifying a recipe's configuration, but also as a reproducible mechanism as right clicking over a command allows exporting it to different shells.
 
-### Conan log dock
+### Conan log dock
 Running Conan commands captures logging from Conan itself, which is displayed in this dock. This is for diagnostic purposes only really.
