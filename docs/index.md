@@ -64,11 +64,22 @@ Use `Edit->Preferences...` to open the preferences dialog.
 ## Recipe tabs
 Each recipe loaded into cruiz is displayed as a tab in the UI. Each tab widget is split into several sections by default:
 
-1. menu
-2. toolbars along the top
-3. a dock to the left, showing the dependencies of the recipe and a visualisation of them
-4. a dock to the right, split between configuration of the recipe and local workflow options
-5. a dock to the bottom, split between a history of Conan commands run on the recipe, and the Conan log stream
+1. the output panes
+2. menu
+3. toolbars along the top
+4. a dock to the left, showing the dependencies of the recipe and a visualisation of them
+5. a dock to the right, split between configuration of the recipe and local workflow options
+6. a dock to the bottom, split between a history of Conan commands run on the recipe, and the Conan log stream
+
+### Output Panes
+The central widget to each recipe tab is the output area, where the output from commands run is displayed.
+
+Features of this pane
+* Output is colourised
+* Output and error streams can be combined or split into separate panes; set in preferences.
+* Text is searchable. See the context menu over the pane.
+* Text is clearable. This can be performed manually via the context menu, or automatically upon each new command run in the preerences.
+* Pane output can be pinned to a separate tab (single level of pinning only) via the context menu
 
 ### Menus
 #### Recipe menu
