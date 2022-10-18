@@ -85,7 +85,7 @@ Features of this pane
 * Output and error streams can be combined or split into separate panes; set in preferences.
 * Text is searchable. See the context menu over the pane.
 * Text is clearable. This can be performed manually via the context menu, or automatically upon each new command run in the preerences.
-* Pane output can be pinned to a separate tab (single level of pinning only) via the context menu
+* Pane output can be pinned to a separate tab (single level of pinning only) via the context menu; this may be useful for comparing output on multiple runs
 
 ### Menus
 #### Recipe menu
