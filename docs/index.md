@@ -44,6 +44,12 @@ Use `File->Open...` to open a recipe into the UI. A wizard will be shown to guid
 
 Multiple recipes can be loaded, each into their own tab.
 
+Commands are run on the recipe with focus. There is a choice in the UI of using the following to invoke commands:
+
+1. keyboard shortcuts, defined in preferences
+2. menu options from the Commands menu in each recipe tab
+3. toolbar buttons across the top of each recipe tab
+
 ## Manage local caches
 Conan supports local caches in different locations. Working with different projects may require a different local cache for each. This can be done with environment variables.
 
