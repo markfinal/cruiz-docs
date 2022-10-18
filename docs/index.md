@@ -62,6 +62,14 @@ The Artifactory web UI and the Conan CLI are the common ways to browse and searc
 
 The remote browser dock visibility can been toggled via the `View->Conan remote browser` menu option.
 
+### Binary browser
+There are a few differences being able to view the package binary files in cruiz compared to the Artifactory web UI:
+
+* cruiz needs to download the `conan_package.tgz` so if these are large, it may take some time
+* cruiz identifies text files, symbolic links, and binary files
+* cruiz can syntax highlight text files if their context can be correctly determined from their extension
+* cruiz allows hiving off the `conan_package.tgz` to your local disk for additional processing
+
 ## Preferences
 Many features of cruiz can be configured via the preferences. Features are logically grouped to make finding what you want easier. Most settings can be applied while the dialog remains open; a few require restarting the application.
 
