@@ -3,7 +3,7 @@
 ## Architecture
 The main point to understand about the application architecture is that it is split into two separate parts:
 
-1. The PySide (v6, with a v2 fallback) UI, with absolutely no Conan modules imported
+1. The PySide6 UI (cruiz v1.3.x also had a PySide2 fallback - removed from later versions), with absolutely no Conan modules imported
 
 2. The workers, that can import Conan modules
 
