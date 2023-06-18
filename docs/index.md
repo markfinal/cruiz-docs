@@ -27,7 +27,7 @@ The goals of cruiz are as follows:
 * `Open...` to open a recipe into a tab
 * `Recent recipes` to view a list of previously opened recipes
 * `Quit`
-### Edit menu
+### Edit menu
 * `Preferences...` to open the preferences dialog
 * `Manage local caches...` to open the local cache management dialog
 ### View menu
@@ -135,7 +135,7 @@ A combobox offering all of the profiles in the associated local cache.
 A spinbox offering a way to change the number of cores that Conan commands will use.
 #### Commands
 Toolbar icons for each Conan and other commands that can be executed on the recipe. Tooltips contain the exact command to be executed on the command line, and will update with changes to the configuration of the recipe.
-#### CMake
+#### CMake
 Checkboxes to enable verbose CMake output and enabling CMake find debug mode. These are to avoid needing to modify any build scripts on disk.
 #### Compiler caching
 cruiz is aware of several compiler caching technologies:

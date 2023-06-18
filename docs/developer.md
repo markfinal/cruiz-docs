@@ -39,7 +39,7 @@ cruiz uses [black](https://pypi.org/project/black/) as a formatter.
 
 ## Continuous integration
 GitHub Actions are implemented for each branch. Depending on the branch, different actions are performed
-### Topic branches
+### Topic branches
 The Python package will be built and linted.
 ### Protected branches
 As for topic branches, but additionally uploaded to Test PyPi.
