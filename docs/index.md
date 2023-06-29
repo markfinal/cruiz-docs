@@ -2,7 +2,8 @@
 
 cruiz stands for Conan Recipe User Interface.
 
-At this time, only Conan 1.x is supported.
+At this time, only Conan 1.x is supported in versions 1.3.x.
+However, there are alpha releases of Cruiz 1.4.0 that dual support Conan 2.x (from v2.0.7), reusing most of the existing UI.
 
 ## Goals
 The goals of cruiz are as follows:
