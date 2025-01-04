@@ -1,3 +1,4 @@
 site_name: cruiz
 theme:
     name: readthedocs
+docs_dir: doc
